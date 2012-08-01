@@ -7,6 +7,8 @@ gem 'rails', '3.2.6'
 group :test, :development do
   gem 'sqlite3'
   gem 'quiet_assets'
+  gem 'simplecov'
+  gem 'rspec-rails'
 end
 
 group :production do
