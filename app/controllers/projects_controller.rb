@@ -6,12 +6,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @project = @user.projects.new(params[:project])
+    # @user = User.find(params[:project][:user_id])
+    @project = Project.new(params[:project])
 
     if @project.save
       flash[:message] = "Huzzah! Your project was created."
-      redirect_to user_projects_path
+      redirect_to projects_path(:user_id => @project.user_id)
     else
       flash[:error] = "You screwed up big time, loser."
       render :new
@@ -24,8 +24,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @project = @user.projects.find(params[:id])
+    @project = Project.find(params[:id])
+    @user = User.find(@project.user_id)
   end
 
 end

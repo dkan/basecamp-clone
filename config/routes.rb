@@ -5,9 +5,8 @@ BasecampClone::Application.routes.draw do
   end
 
   devise_for :users
-  resources :users, :only => [:show] do
-    resources :projects
-  end
+  resources :projects
+
 
 
   # The priority is based upon order of creation:

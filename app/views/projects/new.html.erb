@@ -1,6 +1,6 @@
 <div class="hero-unit">
   <%= @user.email %><br /><br />
-  <%= form_for [@user, @project] do |f| %>
+  <%= form_for @project do |f| %>
   <p>
     Project Name:<br>
     <%= f.text_field :name, :class => "span4" %>
@@ -11,6 +11,7 @@
   <p>
     Private: <%= f.radio_button :access, "private"%>
   </p>
+  <%= f.hidden_field :user_id %>
   <p>
     Project Description:<br>
     <%= f.text_area :description, :class => "span8", :rows => 5 %>

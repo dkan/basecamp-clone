@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BasecampClone</title>
+  <title>Home</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,7 +10,6 @@
 
 
   <div class="container hero-unit">
-    <%= render 'layouts/header'%>
 
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">
