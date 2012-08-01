@@ -6,6 +6,7 @@ gem 'rails', '3.2.6'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :test, :development do
   gem 'sqlite3'
+  gem 'quiet_assets'
 end
 
 group :production do
@@ -22,8 +23,10 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'twitter-bootstrap-rails'
 end
 
+gem 'devise'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

@@ -1,4 +1,11 @@
 BasecampClone::Application.routes.draw do
+
+  devise_scope :user do
+    root :to => 'static#index'
+  end
+
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
