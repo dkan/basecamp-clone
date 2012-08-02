@@ -1,0 +1,21 @@
+<p>Project: <%= @project.name %></p>
+<p>Description: <%= @project.description %></p><br />
+
+
+<%= form_for @list do |f| %>
+ <p>
+   List Name:<br>
+   <%= f.text_field :name, :class => "span4" %>
+ </p>
+ <p>
+   List Description:<br>
+   <%= f.text_area :description, :class => "span8", :rows => 5 %>
+ </p>
+ <%= f.hidden_field :project_id %>
+ <%= f.hidden_field :user_id, :value => @project.user_id %>
+
+
+   <%= f.submit "Create List" , class: "btn btn-primary btn-medium" %>
+
+
+ <% end %>

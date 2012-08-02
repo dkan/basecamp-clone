@@ -6,7 +6,6 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    # @user = User.find(params[:project][:user_id])
     @project = Project.new(params[:project])
 
     if @project.save

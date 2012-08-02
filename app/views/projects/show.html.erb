@@ -1,4 +1,13 @@
 Owner: <%= @user.email %><br />
 Project: <%= @project.name %><br />
-Project Description: <%= @project.description %><br >
-access: <%= @project.access %>
+Project Description: <%= @project.description %><br />
+access: <%= @project.access %><br />
+
+<%= link_to "New Task List", new_list_path(:project_id => @project) %>
+
+<% @project.lists.each do |list| %>
+
+  <p><%= "#{list.name} - #{list.description}" %></p>
+
+
+<% end %>
