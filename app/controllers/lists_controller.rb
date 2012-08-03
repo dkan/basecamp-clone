@@ -15,4 +15,9 @@ class ListsController < ApplicationController
       render :new
     end
   end
+
+  def show
+    @list = List.find(params[:id])
+    @task = @list.tasks.new
+  end
 end

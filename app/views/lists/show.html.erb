@@ -1,0 +1,8 @@
+<%= @list.name %>
+
+<%= render :partial =>'tasks/form' %>
+
+
+<% @list.tasks.each do |task| %>
+   <p><%= "#{task.body}" %></p>
+ <% end %>

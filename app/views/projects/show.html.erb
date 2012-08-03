@@ -2,12 +2,22 @@ Owner: <%= @user.email %><br />
 Project: <%= @project.name %><br />
 Project Description: <%= @project.description %><br />
 access: <%= @project.access %><br />
+members: <br /><% @project.memberships.each do |membership| %>
+  <%= membership.user.email %><br />
+<% end %>
+<%= link_to "(+) Add Member", new_membership_path(:id => @project.id), :remote => true, class: "member-button" %>
+<div class="membership"></div>
 
+<br />
 <%= link_to "New Task List", new_list_path(:project_id => @project) %>
 
 <% @project.lists.each do |list| %>
 
-  <p><%= "#{list.name} - #{list.description}" %></p>
-
+  <p><%= link_to "#{list.name}", list_path(:id => list.id) %> - <%= list.description %></p>
+  <ul>
+    <% list.tasks.each do |task| %>
+      <li><%= "#{task.body} due:#{task.due_date.strftime("%b %d, %Y")}" %></li>
+    <% end %>
+  </ul>
 
 <% end %>
