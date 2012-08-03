@@ -8,10 +8,11 @@ class MembershipsController < ApplicationController
   end
 
   def create
+
     if @user = User.find_by_email(params[:membership][:user_id]) #actually, this is the email
 
       admin = false
-      if params[:membership][:admin] == 1
+      if params[:membership][:admin] == "1"
         admin = true
       end
       @membership  = @user.memberships.new

@@ -10,7 +10,8 @@ class ProjectsController < ApplicationController
 
     if @project.save
       flash[:message] = "Huzzah! Your project was created."
-      redirect_to projects_path(:user_id => @project.user_id)
+      @membership = @project.memberships.create(:user_id => current_user.id, :admin => true )
+      redirect_to root_path#projects_path(:user_id => @project.user_id)
     else
       flash[:error] = "You screwed up big time, loser."
       render :new
@@ -19,7 +20,7 @@ class ProjectsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @projects = @user.projects.all
+    @memberships = @user.memberships.all
   end
 
   def show

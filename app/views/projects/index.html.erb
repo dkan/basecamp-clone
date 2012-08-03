@@ -1,7 +1,14 @@
 <%= @user.email %>
-<% @projects.each do |p| %>
+
+<% @memberships.each do |membership| %>
+  <% project = Project.find(membership.project_id)%>
   <p>
-    <%= link_to "#{p.name}", project_path(p) %> -
-    <%= p.description %>
+    <%= link_to project.name, project_path(project) %> -
+    <%= project.description %>
+    <% if membership.admin == true %>
+       - (admin)
+    <% else %>
+       - (member)
+    <% end %>
   </p>
 <% end %>

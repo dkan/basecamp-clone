@@ -11,7 +11,7 @@
   <p>
     Private: <%= f.radio_button :access, "private"%>
   </p>
-  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
   <p>
     Project Description:<br>
     <%= f.text_area :description, :class => "span8", :rows => 5 %>
