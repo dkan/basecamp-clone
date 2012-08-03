@@ -1,0 +1,11 @@
+<% project.lists.each do |list| %>
+
+  <p><%= link_to "#{list.name}", list_path(:id => list.id) %> - <%= list.description %></p>
+  <ul class=<%="tasks-#{list.id}"%>>
+    <%= render :partial => 'tasks/tasks', :locals => {:list => list}%>
+  </ul>
+
+  <div class =<%="new-task-#{list.id}"%>></div>
+  <%= link_to "(+) Task", new_task_path(:id => list.id), :remote => true, class: "new-task-button" %>
+
+<% end %>

@@ -1,0 +1,11 @@
+$('<%=".new-task-#{@list.id}"%>').html(
+    ''
+    );
+
+$('.new-task-button').html(
+    '(+) Task'
+);
+
+$('<%= "ul.tasks-#{@list.id}"%>').html(
+    '<%=j render :partial => "tasks/tasks", :locals => {:list => @list} %>'
+    );

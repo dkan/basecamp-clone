@@ -1,8 +1,4 @@
-<p>Project: <%= @project.name %></p>
-<p>Description: <%= @project.description %></p><br />
-
-
-<%= form_for @list do |f| %>
+<%= form_for @list, :remote => true do |f| %>
  <p>
    List Name:<br>
    <%= f.text_field :name, :class => "span4" %>

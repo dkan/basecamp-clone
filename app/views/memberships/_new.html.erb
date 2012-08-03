@@ -1,11 +1,14 @@
 <%= form_for @membership do |f| %>
   <br />
-  Admin:
-  <%= f.check_box :admin %><br />
-  Email:
-  <%= f.text_field :user_id, :as => :email %><br />
-  <%= f.hidden_field :project_id, :value => @project.id %><br />
-
+  <p>
+    Admin:
+    <%= f.check_box :admin %><br />
+  </p>
+  <p>
+    Email:
+    <%= f.text_field :user_id, :as => :email %><br />
+    <%= f.hidden_field :project_id, :value => @project.id %>
+  </p>
   <%= f.submit 'Add Member', :class => 'btn btn-small btn-primary' %>
 
 <% end %>

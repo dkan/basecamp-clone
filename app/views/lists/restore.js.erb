@@ -1,0 +1,11 @@
+$('.new-list').html(
+    ''
+    );
+
+$('.new-list-button').html(
+    '(+) Task List'
+);
+
+$('.lists').html(
+    '<%=j render :partial => "lists/lists", :locals => {:project => @project} %>'
+    );

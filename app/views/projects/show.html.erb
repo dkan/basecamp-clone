@@ -9,15 +9,9 @@ members: <br /><% @project.memberships.each do |membership| %>
 <div class="membership"></div>
 
 <br />
-<%= link_to "New Task List", new_list_path(:project_id => @project) %>
+<%= link_to "(+) Task List", new_list_path(:project_id => @project), :remote => true, class: "new-list-button" %>
+<div class ="new-list"></div>
 
-<% @project.lists.each do |list| %>
-
-  <p><%= link_to "#{list.name}", list_path(:id => list.id) %> - <%= list.description %></p>
-  <ul>
-    <% list.tasks.each do |task| %>
-      <li><%= "#{task.body} due:#{task.due_date.strftime("%b %d, %Y")}" %></li>
-    <% end %>
-  </ul>
-
-<% end %>
+<div class="lists">
+  <%= render :partial => "lists/lists", :locals => {:project => @project} %>
+</div>

@@ -1,0 +1,7 @@
+$('<%=".new-task-#{@list.id}"%>').html(
+    "<%=j render(:partial => 'tasks/form', :locals => {:task => @task})%>"
+    );
+
+$('.new-task-button').html(
+    ''
+);
